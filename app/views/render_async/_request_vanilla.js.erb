@@ -33,6 +33,13 @@
     var SUCCESS = 200;
     var ERROR = 400;
 
+    //begin pmo3 changes
+    var container = document.getElementById('<%= container_id %>');
+    if (container.hasAttribute("data-render-async-ignore")) {
+      return;
+    }
+    // end changes
+
     request.open('<%= method %>', '<%= path.html_safe %>', asyncRequest);
 
     var headers = <%= headers.to_json.html_safe %>;
